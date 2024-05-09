@@ -12,7 +12,7 @@ contract SmoothRouter {
     mapping (address => uint256) public nonces;
 
     function transfer(address tokenAddress, address from, address to, uint256 transferAmount, address feeCollector, uint256 feeAmount, uint256 nonce, uint8 v, bytes32 r, bytes32 s) public {
-        bytes32 digest = keccak256(abi.encodePacked("Smooth", address(this), tokenAddress, from, to, transferAmount, feeCollector, feeAmount, nonce));
+        bytes32 digest = keccak256(abi.encodePacked("Smooth", block.chainid, address(this), tokenAddress, from, to, transferAmount, feeCollector, feeAmount, nonce));
         bytes32 prefixedDigest = keccak256(abi.encodePacked("\x19TRON Signed Message:\n32", digest));
         address signer = ecrecover(prefixedDigest, v, r, s);
         require(from == signer, "WRONG SIGNATURE");
