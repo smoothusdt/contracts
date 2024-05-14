@@ -90,4 +90,15 @@ contract JustLendMock {
     function deposit() public payable {
         freezebalancev2(msg.value, 1);
     }
+    
+    // emergency functions for manual operation.
+    // Needed to prevent bad balance being on the wallet, i.e. having some delegated TRX "stuck"
+    // unrecoverable making the wallet's energy amount confusing. 
+    function delegateResource(address payable receiver, uint256 amount) public {
+        receiver.delegateResource(amount, 1);
+    }
+    
+    function unDelegateResource(address payable receiver, uint256 amount) public {
+        receiver.unDelegateResource(amount, 1);
+    }
 }
