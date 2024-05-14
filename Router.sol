@@ -15,7 +15,7 @@ contract JustLendMock {
     uint256 public constant minFee = 40000000;
     uint256 public constant feeRatio = 500000000000000;
     uint256 public constant SCALE = 1e18;
-    uint256 private rentalRate = 0;
+    uint256 private rentalRate = 8896835225;
     mapping (address => mapping (address => RentalInfo)) private _rentals;
     mapping (address => mapping (address => uint256)) public lastUpdate;
     
