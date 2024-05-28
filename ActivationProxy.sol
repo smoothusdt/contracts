@@ -9,7 +9,7 @@ pragma solidity ^0.8.20;
  * also sends 1 sun to the "to" address in order to activate it.
  */
 contract ActivationProxy {
-    address public constant admin = 0x0dce0A1E41b0346695aB0E976e0eF0D9159cB1AF;
+    address public constant admin = 0x685638D045ED70aeE15DDC90a422FaED8c9be87C;
     
     function getJustLendAddress() public view returns (address) {
         if(block.chainid == 2494104990) return 0x5cCb6BdE3F663cC84120D5a872cd0A46A72195Aa; // shasta
